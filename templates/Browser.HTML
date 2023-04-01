@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <link rel="stylesheet" href="{{ url_for('static', filename='CSS2.css') }}">
+    </header>
+    <body>
+        <p style="color:white; font-size: x-large;">Welcome, {{ username }}!</p>
+        <input type="button" onclick="location.href='Logout.HTML';" value="Log Out" style="width: 100px; height: 25px; background-color: rgb(0, 191, 255); color: white;">
+        <input type="button" onclick="location.href='ShoppingCart.HTML';" value="View Shopping Cart" style="width: 150px; height: 25px; background-color: rgb(0, 191, 255); color: white;">
+        <form method="post" action="DataInput.HTML">
+                    <p style="font-size: 25px; color: white;">Amethyst</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Amatista_Laye_2.jpg/800px-Amatista_Laye_2.jpg" alt="Amethyst" width="150" height="150">
+                    <p>Price: $320</p>
+                    <p style="color: white;">Amount: <input type="text" name="amethyst" id="amethyst"></p>
+                    <p style="font-size: 25px; color: white;">Quartz</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Quartz%2C_Tibet.jpg" alt="Quartz" width="150" height="150">
+                    <p>Price: $400</p>
+                    <p style="color: white;">Amount: <input type="text" name="quartz" id="quartz"></p>
+                    <p style="font-size: 25px; color: white;">Diamond</p>
+                    <img src="https://cdn.shopify.com/s/files/1/1569/6995/articles/diamond_quality_e937434a-7bdf-41fd-bd81-5935707348e8.jpg?v=1614681170" alt="Diamond" width="200" height="150">
+                    <p>Price: $1,000</p>
+                    <p style="color: white;">Amount: <input type="text" name="diamond" id="diamond"></p>
+            <p><button style="width: 100px; height: 25px; background-color: rgb(0, 191, 255); color: white;" type="submit" class="popup" onclick="ValidSubmission()">Submit</button></p>
+            <span class="popuptext" id="ValidSubmissionPopup" style="color: white">{{ error }}</span>
+            <script>
+
+                function ValidSubmission() {
+                  var popup = document.getElementById("ValidSubmissionPopup");
+                  popup.classList.toggle("show");
+                }
+                </script>
+        </form>
+    </body>
+</html>

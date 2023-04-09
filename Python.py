@@ -2,33 +2,22 @@ from flask import Flask, render_template, request, url_for, redirect, session
 import mysql.connector
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
-import re
-
-
 
 app = Flask(__name__)
 
-
-
-
 app.secret_key = 'your secret key'
-
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'testdrive'
 
-
 mysql = MySQL(app)
-
-
 
 @app.route('/', methods=['GET','POST'])
 def home():
     error=''
     return render_template('Main.HTML',error='')
-
 
 @app.route('/Test.HTML', methods=['GET', 'POST'])
 def login():
@@ -120,7 +109,6 @@ def InputData():
                 mysql.connection.commit()
         error = 'Successfully added to shopping cart!'
         return render_template('Browser.HTML',error=error,username=username)    
-
         
 @app.route('/ShoppingCart.HTML')
 def ShoppingCart():
@@ -149,7 +137,6 @@ def HomePage():
     if 'username' in session:
         username=session['username']
         return render_template('Browser.HTML',username=username)
-
 
 if __name__ == "__main__":
     app.run(debug=True)
